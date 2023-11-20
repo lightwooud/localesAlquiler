@@ -1,0 +1,130 @@
+<div class="container">
+  
+    <div class="d-flex ">
+      <h1>Editar Local</h1>
+    </div>
+
+    <hr>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="nombre_negocio">Nombre del Local:</label>
+              <input
+                formControlName="nombre_negocio"
+                [(ngModel)]="locales.nombre_negocio"
+                id="nombre_negocio"
+                type="text"
+                class="form-control">
+              <div *ngIf="form.value.nombre_negocio.touched" class="alert alert-danger">
+                  <div *ngIf="form.value.nombre_negocio.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.nombre_negocio.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="nombre_replegal">Nombre del representante:</label>
+              <input
+                formControlName="nombre_replegal"
+                [(ngModel)]="locales.nombre_replegal"
+                id="nombre_replegal"
+                type="text"
+                class="form-control">
+              <div *ngIf="form.value.nombre_replegal.touched && form.value.nombre_replegal.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.nombre_replegal.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.nombre_replegal.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="apellido_replegal">Apellido del representante:</label>
+              <input
+                formControlName="apellido_replegal"
+                [(ngModel)]="locales.apellido_replegal"
+                id="apellido_replegal"
+                type="text"
+                class="form-control">
+              <div *ngIf="form.value.apellido_replegal.touched && form.value.apellido_replegal.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.apellido_replegal.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.apellido_replegal.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="ubicacion">Ubicacion:</label>
+              <input
+                formControlName="ubicacion"
+                [(ngModel)]="locales.ubicacion"
+                id="ubicacion"
+                type="text"
+                class="form-control">
+              <div *ngIf="form.value.ubicacion.touched && form.value.ubicacion.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.ubicacion.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.ubicacion.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="telefono">telefono:</label>
+              <input
+                formControlName="telefono"
+                [(ngModel)]="locales.telefono"
+                id="telefono"
+                type="text"
+                class="form-control">
+              <div *ngIf="form.value.telefono.touched && form.value.telefono.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.telefono.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.telefono.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="subcategorias_id">Subcategorias:</label>
+              <input
+                formControlName="subcategorias_id"
+                [(ngModel)]="locales.subcategorias_id"
+                id="subcategorias_id"
+                type="number"
+                class="form-control">
+              <div *ngIf="form.value.subcategorias_id.touched && form.value.subcategorias_id.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.subcategorias_id.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.subcategorias_id.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="estado">estado:</label>
+              <input
+                formControlName="estado"
+                [(ngModel)]="locales.estado"
+                id="estado"
+                type="text"
+                class="form-control">
+                <div *ngIf="form.value.estado.touched && form.value.estado.invalid" class="alert alert-danger">
+                    <div *ngIf="form.value.estado.errors.required">*Name is required.</div>
+                    <div *ngIf="form.value.estado.errors.pattern">*The name must only contain letters.</div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <button class="btn btn-primary" type="submit">Update</button>
+    </form>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+

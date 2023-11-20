@@ -1,0 +1,32 @@
+<!-- reporte-locales.component.html -->
+
+<div style="text-align: center;">
+    <h1>REPORTE DE LOCALES DEL CENTRO COMERCIAL</h1>
+    <table style="border: 1px solid black; padding: 8px; width: 100%;">
+      <thead>
+        <tr>
+          <th>NOMBRE LOCAL</th>
+          <th>UBICACION</th>
+          <th>REPRESENTANTE LEGAL</th>
+          <th>TELEFONO</th>
+          <th>CATEGORIA</th>
+          <th>SUBCATEGORIA</th>
+          <th>ESTADO</th>
+          <!-- Agrega las columnas adicionales que desees mostrar -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let local of locales" style="padding-top: 8px;">
+          <td>{{ local.namelocal | uppercase }}</td>
+          <td>{{ local.ubicacion | uppercase }}</td>
+          <td>{{ (local.namelegal + ' ' + local.apellidoslegal) | uppercase }}</td>
+          <td>{{ local.telefono | uppercase }}</td>
+          <td>{{ local.namecategoria | uppercase }}</td>
+          <td>{{ local.namesubcategorias | uppercase }}</td>
+          <td>{{ local.estado | uppercase }}</td>
+          <!-- Agrega las celdas adicionales que desees mostrar -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

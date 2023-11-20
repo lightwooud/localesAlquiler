@@ -1,0 +1,148 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>NUEVO LOCAL</h4>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="nombre_negocio">Nombre del local:</label>
+                <input
+                  formControlName="nombre_negocio"
+                  id="nombre_negocio"
+                  type="text"
+                  class="form-control" >
+                  <!-- f es la funcion que retorna en formulario validado -->
+                <div *ngIf="form.value.nombre_negocio.touched " class="alert alert-danger">
+                    <div *ngIf="form.value.nombre_negocio.errors.required">*Name is required.</div>
+                    <div *ngIf="form.value.nombre_negocio.errors.pattern">*The name must only cont in letters.</div>
+                </div>
+              </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="nombre_replegal">Nombre del representante:</label>
+              <input
+                formControlName="nombre_replegal"
+                id="nombre_replegal"
+                type="text"
+                class="form-control" >
+                <!-- f es la funcion que retorna en formulario validado -->
+              <div *ngIf="form.value.nombre_replegal.touched && form.value.nombre_replegal.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.nombre_replegal.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.nombre_replegal.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="apellido_replegal">Apellido del representante:</label>
+              <input
+                formControlName="apellido_replegal"
+                id="apellido_replegal"
+                type="text"
+                class="form-control" >
+                <!-- f es la funcion que retorna en formulario validado -->
+              <div *ngIf="form.value.apellido_replegal.touched && form.value.apellido_replegal.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.apellido_replegal.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.apellido_replegal.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="ubicacion">Ubicacion:</label>
+              <input
+                formControlName="ubicacion"
+                id="ubicacion"
+                type="text"
+                class="form-control" >
+                <!-- f es la funcion que retorna en formulario validado -->
+              <div *ngIf="form.value.ubicacion.touched && form.value.ubicacion.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.ubicacion.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.ubicacion.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="telefono">telefono:</label>
+              <input
+                formControlName="telefono"
+                id="telefono"
+                type="text"
+                class="form-control" >
+                <!-- f es la funcion que retorna en formulario validado -->
+              <div *ngIf="form.value.telefono.touched && form.value.telefono.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.telefono.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.telefono.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6 ">
+            <label for="subcategorias_id">Subcategorias:</label>
+            <input
+              formControlName="subcategorias_id"
+              id="subcategorias_id"
+              type="text"
+              class="form-control">
+              <!-- f es la funcion que retorna en formulario validado -->
+            <div *ngIf="form.value.subcategorias_id.touched && form.value.subcategoria.invalid" class="alert alert-danger">
+                <div *ngIf="form.value.subcategorias_id.errors.required">*Name is required.</div>
+                <div *ngIf="form.value.subcategorias_id.errors.pattern">*The name must only contain letters.</div>
+            </div>
+          </div>
+      </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="estado">estado:</label>
+              <select  formControlName="estado" class="form-control" name="estado" id="estado">
+                <option selected disabled> Seleccione el estado </option>
+                    <option value="ACTIVO" required>ACTIVO</option>
+                    <option value="EN DEUDA" required>EN DEUDA</option>
+                    <option value="DESALOHADO" required>DESALOHADO</option>
+                    <option value="INACTIVO" required>INACTIVO</option>
+            </select>
+                <!-- f es la funcion que retorna en formulario validado -->
+              <div *ngIf="form.value.estado.touched && form.value.estado.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.estado.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.estado.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <!--<div class="form-group">
+            <label for="categoria">Categoría</label>
+            <select class="form-control" name="categoria" id="categoria" [(ngModel)]="selectedCategoria">
+              <option selected disabled>Seleccione la categoría</option>
+              <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
+            </select>
+          </div>
+
+        <div class="form-group">
+            <label for="subcategoria">Subcategoría</label>
+            <select class="form-control" name="subcategoria" id="subcategoria" [(ngModel)]="selectedSubcategoria">
+              <option selected disabled>Seleccione la subcategoría</option>
+              <option *ngFor="let subcategoria of subcategorias" [value]="subcategoria.id">{{ subcategoria.nombre }}</option>
+            </select>
+          </div>-->
+  
+
+          <button class="btn btn-primary" type="submit" >Submit</button>
+      </form>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+

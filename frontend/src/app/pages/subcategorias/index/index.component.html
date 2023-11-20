@@ -1,0 +1,38 @@
+<section>
+    <h1 style="text-align:center;">
+		Gestion de subcategorias
+	</h1>
+	<hr>
+    <div class="d-flex justify-content-between">
+        <h4>Lista de subcategorias</h4>
+        <a routerLink="/subcategorias/create" class="btn btn-success">Crear subcategorias</a>
+    </div>
+
+    <br>    
+    
+    <table class=" text-center container mt-4">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Estado</th>
+            <th>Categoria</th>
+            <th width="130px">Accion</th>
+        </tr>
+
+            <!--    *ngFor igual a foreach-->
+            <tr *ngFor="let subcategoria of subcategorials">
+                <td>{{ subcategoria.id }}</td>
+                <td>{{ subcategoria.nombre }}</td>
+                <td>{{ subcategoria.descripcion }}</td>
+                <td>{{ subcategoria.estado}}</td>
+                <td>{{ subcategoria.categorias_id}}</td>
+                <td>
+                    <!-- Componente que contiene el enlace -->
+                    <button class="btn btn-info " [routerLink]="['/subcategorias/edit', subcategoria.id]">Editar</button>
+
+                    <button type="button" (click)="deleteSubcategorias(subcategoria.id)" class="btn btn-danger">Borrar</button>
+                </td>
+            </tr>
+    </table>
+</section>

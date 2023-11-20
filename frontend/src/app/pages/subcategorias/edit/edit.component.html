@@ -1,0 +1,83 @@
+
+<div class="container">
+  
+    <div class="d-flex ">
+      <h1>Editar subcategoria</h1>
+    </div>
+
+    <hr>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="nombre">Nombre de la subcategoria:</label>
+              <input
+                formControlName="nombre"
+                [(ngModel)]="subcategorias.nombre"
+                id="nombre"
+                type="text"
+                class="form-control">
+              <div *ngIf="form.value.nombre.touched" class="alert alert-danger">
+                  <div *ngIf="form.value.nombre.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.nombre.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="descripcion">Descripcion:</label>
+              <input
+                formControlName="descripcion"
+                [(ngModel)]="subcategorias.descripcion"
+                id="descripcion"
+                type="text"
+                class="form-control">
+              <div *ngIf="form.value.descripcion.touched && form.value.descripcion.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.descripcion.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.descripcion.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6 ">
+            <label for="categorias_id">Categoria:</label>
+            <input
+              formControlName="categorias_id"
+              [(ngModel)]="subcategorias.categorias_id"
+              id="categorias_id"
+              type="text"
+              class="form-control">
+            <div *ngIf="form.value.categorias_id.touched && form.value.categorias_id.invalid" class="alert alert-danger">
+                <div *ngIf="form.value.categorias_id.errors.required">*Name is required.</div>
+                <div *ngIf="form.value.categorias_id.errors.pattern">*The name must only contain letters.</div>
+            </div>
+          </div>
+      </div>
+        
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="estado">estado:</label>
+              <input
+                formControlName="estado"
+                [(ngModel)]="subcategorias.estado"
+                id="estado"
+                type="text"
+                class="form-control">
+                <div *ngIf="form.value.estado.touched && form.value.estado.invalid" class="alert alert-danger">
+                    <div *ngIf="form.value.estado.errors.required">*Name is required.</div>
+                    <div *ngIf="form.value.estado.errors.pattern">*The name must only contain letters.</div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <button class="btn btn-primary" type="submit">Update</button>
+    </form>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+

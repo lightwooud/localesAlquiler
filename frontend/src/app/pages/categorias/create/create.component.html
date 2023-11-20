@@ -1,0 +1,71 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>NUEVA CATEGORIA</h4>
+     
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="nombre">Nombre de la categoria:</label>
+                <input
+                  formControlName="nombre"
+                  id="nombre"
+                  type="text"
+                  class="form-control" >
+                  <!-- f es la funcion que retorna en formulario validado -->
+                <div *ngIf="form.value.nombre.touched " class="alert alert-danger">
+                    <div *ngIf="form.value.nombre.errors.required">*Name is required.</div>
+                    <div *ngIf="form.value.nombre.errors.pattern">*The name must only cont in letters.</div>
+                </div>
+              </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="descripcion">Descripcion:</label>
+              <input
+                formControlName="descripcion"
+                id="descripcion"
+                type="text"
+                class="form-control" >
+                <!-- f es la funcion que retorna en formulario validado -->
+              <div *ngIf="form.value.descripcion.touched && form.value.descripcion.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.descripcion.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.descripcion.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="estado">estado:</label>
+              <select  formControlName="estado" class="form-control" name="estado" id="estado">
+                <option selected disabled> Seleccione el estado </option>
+                    <option value="ACTIVO" required>ACTIVO</option>
+                    <option value="EN DEUDA" required>EN DEUDA</option>
+                    <option value="DESALOHADO" required>DESALOHADO</option>
+                    <option value="INACTIVO" required>INACTIVO</option>
+            </select>
+                <!-- f es la funcion que retorna en formulario validado -->
+              <div *ngIf="form.value.estado.touched && form.value.estado.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.estado.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.estado.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+          <button class="btn btn-primary" type="submit" >Submit</button>
+      </form>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+

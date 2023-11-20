@@ -1,0 +1,36 @@
+<section>
+    <h1 style="text-align:center;">
+		Gestion de categorias
+	</h1>
+	<hr>
+    <div class="d-flex justify-content-between">
+        <h4>Lista de categorias</h4>
+        <a routerLink="/categorias/create" class="btn btn-success">Crear categorias</a>
+    </div>
+
+    <br>    
+    
+    <table class=" text-center container mt-4">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Estado</th>
+            <th width="130px">Accion</th>
+        </tr>
+
+            <!--    *ngFor igual a foreach-->
+            <tr *ngFor="let categoria of categorials">
+                <td>{{ categoria.id }}</td>
+                <td>{{ categoria.nombre }}</td>
+                <td>{{ categoria.descripcion }}</td>
+                <td>{{ categoria.estado}}</td>
+                <td>
+                    <!-- Componente que contiene el enlace -->
+                    <button class="btn btn-info " [routerLink]="['/categorias/edit', categoria.id]">Editar</button>
+
+                    <button type="button" (click)="deleteCategorias(categoria.id)" class="btn btn-danger">Borrar</button>
+                </td>
+            </tr>
+    </table>
+</section>

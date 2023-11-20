@@ -1,0 +1,67 @@
+<div class="container">
+  
+    <div class="d-flex ">
+      <h1>Editar categoria</h1>
+    </div>
+
+    <hr>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="nombre">Nombre de la categoria:</label>
+              <input
+                formControlName="nombre"
+                [(ngModel)]="categorias.nombre"
+                id="nombre"
+                type="text"
+                class="form-control">
+              <div *ngIf="form.value.nombre.touched" class="alert alert-danger">
+                  <div *ngIf="form.value.nombre.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.nombre.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="descripcion">descripcion:</label>
+              <input
+                formControlName="descripcion"
+                [(ngModel)]="categorias.descripcion"
+                id="descripcion"
+                type="text"
+                class="form-control">
+              <div *ngIf="form.value.descripcion.touched && form.value.descripcion.invalid" class="alert alert-danger">
+                  <div *ngIf="form.value.descripcion.errors.required">*Name is required.</div>
+                  <div *ngIf="form.value.descripcion.errors.pattern">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="estado">estado:</label>
+              <input
+                formControlName="estado"
+                [(ngModel)]="categorias.estado"
+                id="estado"
+                type="text"
+                class="form-control">
+                <div *ngIf="form.value.estado.touched && form.value.estado.invalid" class="alert alert-danger">
+                    <div *ngIf="form.value.estado.errors.required">*Name is required.</div>
+                    <div *ngIf="form.value.estado.errors.pattern">*The name must only contain letters.</div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <button class="btn btn-primary" type="submit">Update</button>
+    </form>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+

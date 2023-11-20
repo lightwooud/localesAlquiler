@@ -1,0 +1,45 @@
+<section>
+    <h1 style="text-align:center;">
+		Gestion de Locales
+	</h1>
+	<hr>
+    <div class="d-flex justify-content-between">
+        <h4>Lista de locales</h4>
+        <a routerLink="/locales/create" class="btn btn-success">Crear Local</a>
+    </div>
+
+    <br>    
+    
+    <table class=" text-center container mt-4">
+        <tr>
+            <th>ID</th>
+            <th>Nombre local</th>
+            <th>Nombre Representante</th>
+            <th>Apellido Representante</th>
+            <th>Telefono</th>
+            <th>Ubicacion</th>
+            <th>Subcategoria</th>
+            <th>Estado</th>
+            <th width="130px">Accion</th>
+        </tr>
+
+            <!--    *ngFor igual a foreach-->
+            <tr *ngFor="let local of locals">
+                <td>{{ local.id }}</td>
+                <td>{{ local.nombre_negocio }}</td>
+                <td>{{ local.nombre_replegal }}</td>
+                <td>{{ local.apellido_replegal }}</td>
+                <td>{{ local.telefono }}</td>
+                <td>{{ local.ubicacion }}</td>
+                <td>{{ local.subcategorias_id }}</td>
+                
+                <td>{{ local.estado}}</td>
+                <td>
+                    <!-- Componente que contiene el enlace -->
+                    <button class="btn btn-info " [routerLink]="['/locales/edit', local.id]">Editar</button>
+
+                    <button type="button" (click)="deleteLocal(local.id)" class="btn btn-danger">Borrar</button>
+                </td>
+            </tr>
+    </table>
+</section>
